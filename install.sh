@@ -8,4 +8,4 @@ git submodule update
 vim +PluginInstall +qall
 ln -s ~/.dotfiles/vim/vimrc ~/.vimrc
 ln -s ~/.dotfiles/vim ~/.vim
-ln -s ~/dotfiles/zshrc ~/zshrc
+ln -s ~/.dotfiles/zshrc ~/.zshrc

@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-git clone git@github.com:robstrong/dotfiles ~/.dotfiles
+git clone --recursive git@github.com:robstrong/dotfiles ~/.dotfiles
 cd ~/.dotfiles
 git init
 git submodule update

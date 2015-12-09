@@ -1,7 +1,6 @@
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.dotfiles/zsh/oh-my-zsh
 
-ZSH_CUSTOM=$HOME/.dotfiles/zsh/custom
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
@@ -41,13 +40,13 @@ ZSH_THEME="rstrong"
 
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
+ZSH_CUSTOM=$HOME/.dotfiles/zsh/custom
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(docker golang z github history-substring-search)
-
+plugins=(docker golang git github history-substring-search)
 
 source $ZSH/oh-my-zsh.sh
 

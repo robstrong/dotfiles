@@ -1,5 +1,15 @@
 [user]
 	name = Rob Strong
-	email = robert.a.strong@gmail.com
+    email = rstrong@pica9.com
 [core]
-	editor = vim
+    editor = vim 
+    mergeoptions = --no-edit
+[help]
+    autocorrect = 1 
+[push]
+    default = simple
+[hub]
+    protocol = ssh 
+[alias]
+    l = log --graph --pretty=format:'%C(yellow)%h%C(cyan)%d%Creset %s %C(white)- %an, %ar%Creset'
+

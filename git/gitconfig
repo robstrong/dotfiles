@@ -1,0 +1,5 @@
+[user]
+	name = Rob Strong
+	email = robert.a.strong@gmail.com
+[core]
+	editor = vim

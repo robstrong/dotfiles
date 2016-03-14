@@ -52,7 +52,7 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
-export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/home/rstrong/go/bin:/home/rstrong/repos/go/bin"
+export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/home/rstrong/go/bin:/home/rstrong/repos/go/bin:/usr/local/packer"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
@@ -110,3 +110,5 @@ export PROMPT_EOL_MARK=""
 #PERL_MM_OPT="INSTALL_BASE=/home/rstrong/perl5"; export PERL_MM_OPT;
 
 # eval $(docker-machine env qa)
+source /home/rstrong/.dvm/dvm.sh
+

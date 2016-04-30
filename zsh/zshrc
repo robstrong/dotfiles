@@ -112,3 +112,5 @@ export PROMPT_EOL_MARK=""
 # eval $(docker-machine env qa)
 source /home/rstrong/.dvm/dvm.sh
 
+GPG_TTY=$(tty)
+export GPG_TTY

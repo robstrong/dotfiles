@@ -114,3 +114,18 @@ source /home/rstrong/.dvm/dvm.sh
 
 GPG_TTY=$(tty)
 export GPG_TTY
+
+dcleanup(){
+    docker rm $(docker ps --filter status=exited -q 2>/dev/null) 2>/dev/null
+    docker rmi $(docker images --filter dangling=true -q 2>/dev/null) 2>/dev/null
+}
+
+updateos() {
+    sudo apt update
+    sudo apt upgrade
+}
+
+restartaudio() {
+    pulseaudio -k
+    sudo alsa force-reload
+}

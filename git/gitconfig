@@ -1,15 +1,20 @@
 [user]
 	name = Rob Strong
-    email = rstrong@pica9.com
+	email = rstrong@pica9.com
 [core]
-    editor = vim 
-    mergeoptions = --no-edit
+	editor = vim
+	mergeoptions = --no-edit
 [help]
-    autocorrect = 1 
+	autocorrect = 1
 [push]
-    default = simple
+	default = simple
 [hub]
-    protocol = ssh 
+	protocol = ssh
+[http]
+	cookiefile = ~/.gitcookies
 [alias]
     l = log --graph --pretty=format:'%C(yellow)%h%C(cyan)%d%Creset %s %C(white)- %an, %ar%Creset'
-
+[commit]
+	gpgsign = true
+[include]
+    path = ~/.gitconfig.private

@@ -129,3 +129,9 @@ restartaudio() {
     pulseaudio -k
     sudo alsa force-reload
 }
+
+enableFuncKeys() {
+    perl ~/.dotfiles/keyboard/k760_function_key.pl
+}
+
+ssh-add ~/.ssh/rstrong.pem &>/dev/null

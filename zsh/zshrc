@@ -52,7 +52,7 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
-export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/home/rstrong/go/bin:/home/rstrong/repos/go/bin:/usr/local/packer"
+export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:~/go/bin:~/repos/go/bin:/usr/local/packer"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
@@ -88,10 +88,6 @@ export PATH=$PATH:$GOROOT/bin
 
 export PYTHONDONTWRITEBYTECODE=true
 
-#export WORKON_HOME=$HOME/.virtualenvs
-#export PROJECT_HOME=$HOME/repos
-#source /usr/local/bin/virtualenvwrapper.sh
-
 export PATH="$PATH:$HOME/.composer/vendor/bin"
 
 TIMEFMT=$'\nreal\t%*E\nuser\t%*U\nsys\t%*S'
@@ -100,17 +96,7 @@ setopt PROMPT_CR
 setopt PROMPT_SP
 export PROMPT_EOL_MARK=""
 
-#export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
-#export PATH="$PATH:$HOME/Downloads/go_appengine" # Add go app engine
-
-#PATH="/home/rstrong/perl5/bin${PATH+:}${PATH}"; export PATH;
-#PERL5LIB="/home/rstrong/perl5/lib/perl5${PERL5LIB+:}${PERL5LIB}"; export PERL5LIB;
-#PERL_LOCAL_LIB_ROOT="/home/rstrong/perl5${PERL_LOCAL_LIB_ROOT+:}${PERL_LOCAL_LIB_ROOT}"; export PERL_LOCAL_LIB_ROOT;
-#PERL_MB_OPT="--install_base \"/home/rstrong/perl5\""; export PERL_MB_OPT;
-#PERL_MM_OPT="INSTALL_BASE=/home/rstrong/perl5"; export PERL_MM_OPT;
-
-# eval $(docker-machine env qa)
-source /home/rstrong/.dvm/dvm.sh
+source ~/.dvm/dvm.sh
 
 GPG_TTY=$(tty)
 export GPG_TTY
@@ -118,6 +104,19 @@ export GPG_TTY
 dcleanup(){
     docker rm $(docker ps --filter status=exited -q 2>/dev/null) 2>/dev/null
     docker rmi $(docker images --filter dangling=true -q 2>/dev/null) 2>/dev/null
+}
+
+dcup(){
+    docker-compose up -d
+}
+
+dcstop(){
+    docker-compose stop -t 1
+}
+
+dcrm(){
+    docker-compose stop -t 1
+    docker-compose rm -f
 }
 
 updateos() {
@@ -134,4 +133,7 @@ enableFuncKeys() {
     perl ~/.dotfiles/keyboard/k760_function_key.pl
 }
 
-ssh-add ~/.ssh/rstrong.pem &>/dev/null
+build() {
+    KEYBASE_USER=$(keybase status | head -n 1 | awk '{print $2}')
+    http POST https://circleci.com/api/v1/project/$1/tree/$2?circle-token=$(cat /keybase/private/$KEYBASE_USER/circleci.token)
+}

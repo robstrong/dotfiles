@@ -124,7 +124,7 @@ endif
 
 set pastetoggle=<F2>
 
-let g:phpqa_messdetector_autorun = 1
+let g:phpqa_messdetector_autorun = 0
 let g:phpqa_codesniffer_autorun = 1 
 let g:phpqa_codesniffer_args = "--standard=PSR2"
 

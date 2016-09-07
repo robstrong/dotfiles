@@ -1,6 +1,3 @@
-[user]
-	name = Rob Strong
-	email = rstrong@pica9.com
 [core]
 	editor = vim
 	mergeoptions = --no-edit

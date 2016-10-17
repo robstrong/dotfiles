@@ -52,7 +52,7 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
-export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:~/go/bin:~/repos/go/bin:/usr/local/packer"
+export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:~/go/bin:~/Code/go/bin:/usr/local/packer:~/Library/Python/2.7/bin:~/.node/bin:$PATH"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
@@ -80,15 +80,19 @@ export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/g
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+export PATH=$PATH:/usr/local/bin
+
 export GO15VENDOREXPERIMENT=1
-export GOROOT=$HOME/repos/go
-export GOPATH=$HOME/go
+export GOPATH=$HOME/Code/go
 export PATH=$PATH:$GOPATH/bin
 export PATH=$PATH:$GOROOT/bin
 
 export PYTHONDONTWRITEBYTECODE=true
 
 export PATH="$PATH:$HOME/.composer/vendor/bin"
+if [[ "$OSTYPE" == "darwin"* ]]; then
+    export PATH="$(brew --prefix homebrew/php/php70)/bin:$PATH"
+fi
 
 TIMEFMT=$'\nreal\t%*E\nuser\t%*U\nsys\t%*S'
 
@@ -96,7 +100,9 @@ setopt PROMPT_CR
 setopt PROMPT_SP
 export PROMPT_EOL_MARK=""
 
-source ~/.dvm/dvm.sh
+if [ -f ~/.dvm/dvm.sh ]; then
+    source ~/.dvm/dvm.sh
+fi
 
 GPG_TTY=$(tty)
 export GPG_TTY
@@ -136,4 +142,8 @@ enableFuncKeys() {
 build() {
     KEYBASE_USER=$(keybase status | head -n 1 | awk '{print $2}')
     http POST https://circleci.com/api/v1/project/$1/tree/$2?circle-token=$(cat /keybase/private/$KEYBASE_USER/circleci.token)
+}
+
+author() {
+    git ls-files | xargs -n1 git blame --line-porcelain | sed -n 's/^author //p' | sort -f | uniq -ic | sort -nr
 }

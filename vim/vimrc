@@ -25,7 +25,8 @@ Plugin 'tomtom/tlib_vim'
 Plugin 'garbas/vim-snipmate'
 Plugin 'honza/vim-snippets'
 Plugin 'dleonard0/pony-vim-syntax'
-Plugin 'scrooloose/nerdtree'
+Plugin 'Shougo/neocomplete'
+Plugin 'ctrlpvim/ctrlp.vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -124,14 +125,14 @@ endif
 
 set pastetoggle=<F2>
 
-let g:phpqa_messdetector_autorun = 0
+let g:phpqa_messdetector_autorun = 1
 let g:phpqa_codesniffer_autorun = 1 
 let g:phpqa_codesniffer_args = "--standard=PSR2"
 
-let g:go_highlight_functions = 1
-let g:go_highlight_methods = 1
-let g:go_highlight_structs = 1
 let g:go_fmt_command = "goimports"
+let g:neocomplete#enable_at_startup = 1
+
+let g:ctrlp_working_path_mode = 'r'
 
 au FileType go nmap <Leader>gd <Plug>(go-doc-browser)
 au FileType go nmap <Leader>i <Plug>(go-info)

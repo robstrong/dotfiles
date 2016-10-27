@@ -27,6 +27,7 @@ Plugin 'honza/vim-snippets'
 Plugin 'dleonard0/pony-vim-syntax'
 Plugin 'Shougo/neocomplete'
 Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'wakatime/vim-wakatime'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -129,12 +130,16 @@ let g:phpqa_messdetector_autorun = 1
 let g:phpqa_codesniffer_autorun = 1 
 let g:phpqa_codesniffer_args = "--standard=PSR2"
 
-let g:go_fmt_command = "goimports"
+" let g:go_fmt_command = "goimports"
 let g:neocomplete#enable_at_startup = 1
 
 let g:ctrlp_working_path_mode = 'r'
+let g:ctrlp_prompt_mappings = {
+    \ 'AcceptSelection("e")': ['<c-t>'],
+    \ 'AcceptSelection("t")': ['<cr>', '<2-LeftMouse>'],
+    \ }
 
 au FileType go nmap <Leader>gd <Plug>(go-doc-browser)
 au FileType go nmap <Leader>i <Plug>(go-info)
+au FileType go nmap <Leader>dt <Plug>(go-def-tab)
 
-Bundle 'wakatime/vim-wakatime'

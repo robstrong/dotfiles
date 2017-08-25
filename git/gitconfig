@@ -1,14 +1,15 @@
 [core]
-	editor = vim
-	mergeoptions = --no-edit
+    editor = vim
+    mergeoptions = --no-edit
+    excludesfile = ~/.dotfiles/git/gitignore
 [help]
-	autocorrect = 1
+    autocorrect = 1
 [push]
-	default = simple
+    default = simple
 [hub]
-	protocol = ssh
+    protocol = ssh
 [http]
-	cookiefile = ~/.gitcookies
+    cookiefile = ~/.gitcookies
 [alias]
     l = log --graph --pretty=format:'%C(yellow)%h%C(cyan)%d%Creset %s %C(white)- %an, %ar%Creset'
 [commit]
